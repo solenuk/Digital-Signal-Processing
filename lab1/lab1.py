@@ -126,7 +126,7 @@ def save_results(N, a_coeffs, b_coeffs, error, filename="results.txt"):
             f.write(f"b_{k} = {b:.6f}\n")
         f.write(f"Approximation Error: {error:.3f}%\n")
 
-N_max = 10
+N_max = 50
 
 k_values = np.arange(0, N_max + 1)
 a_coeffs = [calc_a_k(k) for k in k_values]
