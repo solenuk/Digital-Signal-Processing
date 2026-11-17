@@ -88,6 +88,12 @@ def part1(N: int):
     exec_time = end - start
     print(f"Час обчислення ЗПФ: {exec_time:.6f} s")
 
+    print(f)
+
+    print("Коефіцієнти розкладу C_k k=(0, N):")
+    for i in range(0, N):
+        print(f"C{i} = {Ck[i]:3f}; |C{i}| = {np.abs(Ck[i]):3f}; argC{i} = {Fraction(np.angle(Ck[i]) / np.pi).limit_denominator(10)}*pi")
+
     mult_code = 8 * N**2
     div_code = 2 * N**2
 
@@ -123,7 +129,7 @@ def part2():
     for i in range(0, N):
         print(f"C{i} = {Ck[i]:3f}; |C{i}| = {np.abs(Ck[i]):3f}; argC{i} = {Fraction(np.angle(Ck[i]) / np.pi).limit_denominator(10)}*pi")
 
-    t = np.linspace(0, Tc, 1000)
+    t = np.linspace(0, 2*Tc, 1000)
     st = s_t(t, Ck, Tc)
 
     plt.figure(figsize=(10, 5))
@@ -145,6 +151,6 @@ def part3():
     for i in range(N):
         print(f"s({i}Tδ) = {sn[i].real:5f}")
 
-# part1(N1)
+part1(N1)
 # part2()
-part3()
+# part3()
